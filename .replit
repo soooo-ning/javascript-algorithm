@@ -23,7 +23,7 @@ name = "Run"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js"
+args = "node basic/a+b.js"
 
 [workflows.workflow.metadata]
 outputType = "console"
