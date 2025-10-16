@@ -1,8 +1,32 @@
-[agent]
-expertMode = true
+run = ["node", "index.js"]
+modules = ["nodejs-20"]
 
 [nix]
 channel = "stable-25_05"
 
-run = ["node", "index.js"]
-    
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node index.js"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
